@@ -1,30 +1,7 @@
-<div align="center">
 
-# Alleviating Hallucinations of Large Language Models through Induced Hallucinations
+# Regularized Contrastive Decoding with Hard Negative Samples for LLM Hallucination Mitigation
 
-<div>
-  <a href='https://hillzhang1999.github.io/' target='_blank'><b>Yue Zhang</b></a><sup>1</sup>&emsp;
-  <a href='https://nealcly.github.io/' target='_blank'>Leyang Cui</b></a><sup>2</sup>&emsp;
-  <a href='https://scholar.google.com/citations?user=aSJcgQMAAAAJ&hl=en/' target='_blank'>Wei Bi</b></a><sup>2</sup>&emsp;
-  <a href='https://scholar.google.com/citations?user=Lg31AKMAAAAJ&hl=en/' target='_blank'>Shuming Shi</b></a><sup>2</sup>&emsp;
-</div>
-<div><sup>1</sup>Soochow University, Suzhou, China</div>
-<div><sup>2</sup>Tencent AI Lab</div>
-
-<div>
-<h4>
-
-![](https://img.shields.io/badge/PRs-welcome-brightgreen) 
-<img src="https://img.shields.io/badge/Version-1.0-blue.svg" alt="Version">
-<img src="https://img.shields.io/github/stars/HillZhang1999/ICD?color=yellow" alt="Stars">
-<img src="https://img.shields.io/github/issues/HillZhang1999/ICD?color=red" alt="Issues">
-
-</h4>
-</div>
-
-<img width="300" alt="image" src="./pics/method.png">
-
-</div>
+This repository contains the official code for EMNLP 2025 Findings paper ["Regularized Contrastive Decoding with Hard Negative Samples for LLM Hallucination Mitigation"]((https://aclanthology.org/2025.findings-emnlp.322/#)).
 
 ## Introduction
 
@@ -32,27 +9,13 @@ Despite their impressive capabilities, large language models (LLMs) have been ob
 
 On TruthfulQA, our ICD approach significantly improves the truthfulness of Llama2-7B-Chat (+8 MC1 score) and Mistral-7B-Instruct (+20 MC1 score). With these improvements, the enhanced Llama2-7B-Chat and Mistral-7B-Instruct now match the performance levels of ChatGPT and GPT4, respectively.
 
-<img width="400" alt="image" src="./pics/performance.png">
-
-If you are interested in our work, please cite:
-```bib
-@article{zhang-etal-2023-ICD,
-  title     = {Alleviating Hallucinations of Large Language Models through Induced Hallucinations},
-  author    = {Zhang, Yue  and
-               Cui, Leyang  and
-               Wei, Bi and
-               Shuming Shi},
-  journal   = {arXiv preprint arXiv:2312.15710},
-}
-```
-
 ## How to Install
 
-You can use the following commands to install the environment for ICD:
+You can use the following commands to install the environment for RCD:
 
 ```sh
-conda create -n icd python==3.10
-conda activate icd
+conda create -n rcd python==3.10
+conda activate rcd
 pip install -r requirements.txt
 cd ./transformers
 pip install --editable ./
@@ -66,21 +29,25 @@ cd ./exp_scripts/benchmark
 sh truthfulqa.sh
 ```
 
-For experiments on Factscore, please try:
+For experiments on Factor, please try:
 ```sh
 cd ./exp_scripts/benchmark
-sh factscore.sh
+sh factor.sh
 ```
-For evaluation on Factscore, please kindly refer to their [repo](https://github.com/shmsw25/FActScore/tree/main).
+
+For experiments on Triviaqa and Natural Questions, please try:
+```sh
+cd ./exp_scripts/benchmark
+sh know_seek.sh
+```
 
 We also provide some hallucinated models on the huggingface model hub for fast trial:
 | Model | Link |
 | :------- | :---------: |
-| **HillZhang/untruthful_llama2_7b** | [HuggingFace](https://huggingface.co/HillZhang/untruthful_llama2_7b)|
-| **HillZhang/untruthful_baichuan2_7b** | [HuggingFace](https://huggingface.co/HillZhang/untruthful_baichuan2_7b)|
-| **HillZhang/untruthful_mistral_7b** | [HuggingFace](https://huggingface.co/HillZhang/untruthful_mistral_7b) |
-| **HillZhang/untruthful_llama2_7b_bio** | [HuggingFace](https://huggingface.co/HillZhang/untruthful_llama2_7b_bio) |
+| **kabumm/halu_llama_qa** | [HuggingFace](https://huggingface.co/kabumm/halu_llama_qa))|
+| **kabumm/halu_llama_dia** | [HuggingFace](https://huggingface.co/kabumm/halu_llama_dia)|
+| **kabumm/halu_llama_sum** | [HuggingFace](https://huggingface.co/kabumm/halu_llama_sum) |
 
 ## Contact
 
-If you have any questions, please feel free to [email](mailto:hillzhang1999@qq.com) me or drop me an issue.
+If you have any questions, please feel free to [email](mailto:shenghaonan@iie.ac.cn) me or drop me an issue.
