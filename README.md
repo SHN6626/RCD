@@ -42,7 +42,7 @@ sh know_seek.sh
 We also provide some hallucinated models on the huggingface model hub for fast trial:
 | Model | Link |
 | :------- | :---------: |
-| **kabumm/halu_llama_qa** | [HuggingFace](https://huggingface.co/kabumm/halu_llama_qa))|
+| **kabumm/halu_llama_qa** | [HuggingFace](https://huggingface.co/kabumm/halu_llama_qa)|
 | **kabumm/halu_llama_dia** | [HuggingFace](https://huggingface.co/kabumm/halu_llama_dia)|
 | **kabumm/halu_llama_sum** | [HuggingFace](https://huggingface.co/kabumm/halu_llama_sum) |
 
