@@ -33,9 +33,9 @@ INVALID_ANS = "[invalid]"
 
 def load_dataset_data(dataset_name, debug):
     if dataset_name == 'triviaqa':
-        dataset = load_from_disk("hotpotqa")['validation']
+        dataset = load_from_disk("triviaqa")['validation']
     elif dataset_name == 'natural_questions':
-        dataset = load_from_disk("hotpotqa")['validation']
+        dataset = load_from_disk("natural_questions")['validation']
     elif dataset_name == 'hotpotqa':
         dataset = load_dataset("hotpotqa")['validation']
     else:
@@ -161,4 +161,5 @@ if __name__ == "__main__":
         json.dump(result_dict, f)
     
     end = time.time()
+
     print(f"Total time: {end - start:.2f} seconds")
